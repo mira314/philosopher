@@ -16,5 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+/******** ft_utis.c ********/
 int	ft_atoi(const char *str);
+size_t	ft_strlen(const char *s);
 #endif
