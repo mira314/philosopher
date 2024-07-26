@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 16:47:32 by vrandria          #+#    #+#             */
-/*   Updated: 2024/07/26 07:25:29 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/07/26 07:26:21 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 typedef struct s_init
 {
     int philo_id;
+    int 
     
 } t_data;
  
