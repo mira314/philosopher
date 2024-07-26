@@ -27,5 +27,7 @@ typedef struct s_init
 } t_data;
  
 
+/******** ft_utis.c ********/
 int	ft_atoi(const char *str);
+size_t	ft_strlen(const char *s);
 #endif

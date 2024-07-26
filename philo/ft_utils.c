@@ -36,3 +36,13 @@ int	ft_atoi(const char *str)
 	}
 	return ((int)result * sign);
 }
+
+size_t	ft_strlen(const char *str);
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
