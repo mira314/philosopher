@@ -6,13 +6,13 @@
 /*   By: vrandria <vrandria@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 08:17:42 by vrandria          #+#    #+#             */
-/*   Updated: 2024/07/23 08:50:07 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/07/26 07:20:42 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 int main(void)
 {
-    printf("%d", ft_atoi("45454"));
+    printf("%s", EAT);
     return 0;
 }
