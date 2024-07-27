@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 08:21:57 by vrandria          #+#    #+#             */
-/*   Updated: 2024/07/23 08:29:38 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/07/27 16:44:48 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_atoi(const char *str)
 	return ((int)result * sign);
 }
 
-size_t	ft_strlen(const char *str);
+size_t	ft_strlen(const char *str)
 {
 	int	i;
 
