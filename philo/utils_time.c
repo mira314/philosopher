@@ -20,7 +20,7 @@ uint64_t get_time(void)
     uint64_t milliseconds;
 
     gettimeofday(&tv, NULL);
-    seconde = tv.tv_sec * 100;
+    seconde = tv.tv_sec * 1000;
     microseconde = tv.tv_usec / 1000;
     milliseconds = seconde + microseconde;
     return (milliseconds);
@@ -29,11 +29,16 @@ uint64_t get_time(void)
 int    ft_do_usleep(uint64_t time)
 {
     uint64_t start_time;
+    uint64_t temp;
 
     start_time = get_time();
-    while ((get_time() - start_time) < time)
+    while (1)
     {
-        usleep(150);
+        temp = get_time();
+        temp = temp - start_time;
+        if (temp >= time)
+            break ;
+        usleep(100);
     }
-    return (1);
+    return (0);
 }

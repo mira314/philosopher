@@ -24,50 +24,41 @@ static check_correct_arg(int argc, char const *argv[])
 
 }
 */
-t_philo *ft_setup_philo(int id)
+int ft_setup_philo(t_data *data)
 {
     t_philo *philo;
     
-    philo = malloc(sizeof(t_philo));
+    philo = malloc(sizeof(data)->nb_philo);
     if (!philo)
-        return (0);
-    philo->id = id;
-    philo->eat_time = get_time();
-    philo->nb_eat = 0;
-    return (philo);
+        return (1);
+    return (0);
 }
 
-t_data *ft_setup(char *argv[])
+void ft_setup(int argc, char *argv[], t_data *data)
 {
-    t_data *data;
-
-    data = malloc(sizeof(t_data));
-    if (!data)
-        return (NULL);
     data->time_start = get_time();
     data->nb_philo = ft_atoi(argv[1]);
     data->time_to_die = ft_atoi(argv[2]);
-    data->time_to_steep = ft_atoi(argv[3]);
+    data->time_to_eat = ft_atoi(argv[3]);
+    data->time_to_steep = ft_atoi(argv[4]);
     data->time_stamp = 0;
-    return (data);
+    if (argc == 6)
+        data->nb_need_eat = ft_atoi(argv[5]);
 }
 void time_update(t_data *data)
 {
-    uint64_t diff_time;
-
-    diff_time = (get_time() - (data->time_start));
-    data->time_stamp = (unsigned int)diff_time;
+    data->time_stamp = (get_time() - data->time_start);
 }
 int main(int argc, char *argv[])
 {
-    t_data *data;
-    (void)argc;
-
-    data = ft_setup(argv);
-    printf("%d at %d\n", data->nb_philo, data->time_stamp);
-    usleep(10000);
-    time_update(data);
-    printf("%d at %d\n", data->nb_philo, data->time_stamp);
-    free(data);
+    t_data data;
+    int i = 50;
+    ft_setup(argc, argv, &data);
+    while(i--) 
+    {
+        printf("%d\n", data.time_stamp);
+        ft_do_usleep(100);
+        time_update(&data);
+    }
     return 0;
 }

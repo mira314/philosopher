@@ -25,7 +25,7 @@ typedef struct s_philo
 {
    int		id;
    int		nb_eat;
-   uint64_t	eat_time;
+   uint64_t	eat_last_time;
 
 }t_philo;
 
@@ -34,9 +34,9 @@ typedef struct s_data
     int nb_philo;
     int nb_need_eat;
     int nb_fork;
-    uint64_t    time_eat;
-    uint64_t    time_to_die;
-    uint64_t    time_to_steep;
+    unsigned int    time_to_die;
+    unsigned int     time_to_steep;
+    unsigned int     time_to_eat;
     uint64_t    time_start;
     t_philo     *philosopher;
     unsigned int         time_stamp;
