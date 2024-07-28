@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 08:21:57 by vrandria          #+#    #+#             */
-/*   Updated: 2024/07/27 16:44:48 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/07/28 10:54:52 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,19 @@ size_t	ft_strlen(const char *str)
 	while (str[i])
 		i++;
 	return (i);
+}
+
+uint64_t	ft_atol64(const char *str)
+{
+	uint64_t	result;
+	int		i;
+
+	i = 0;
+	result = 0;
+	while (str[i]>= '0' && str[i]<= '9')
+	{
+		result = (result * 10) + str[i] - '0';
+		i++;
+	}
+	return ((uint64_t)result);
 }

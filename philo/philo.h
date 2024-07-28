@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 16:47:32 by vrandria          #+#    #+#             */
-/*   Updated: 2024/07/27 16:43:50 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/07/28 12:31:09 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,17 @@ typedef struct s_philo
 
 }t_philo;
 
-typedef struct s_init
+typedef struct s_data
 {
     int nb_philo;
     int nb_need_eat;
+    int nb_fork;
     uint64_t    time_eat;
     uint64_t    time_to_die;
     uint64_t    time_to_steep;
     uint64_t    time_start;
     t_philo     *philosopher;
+    int         time_stamp;
 } t_data;
 
 typedef struct s_threads
@@ -46,9 +48,11 @@ typedef struct s_threads
 } t_threads;
 
 
- 
-
+ /******** utils_time.c   ********/
+uint64_t    get_time(void);
+void        ft_do_usleep(uint64_t time);
 /******** ft_utis.c ********/
 int	    ft_atoi(const char *str);
 size_t	ft_strlen(const char *s);
+uint64_t	ft_atol64(const char *str);
 #endif

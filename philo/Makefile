@@ -1,4 +1,4 @@
-SRCS = ft_utils.c main.c
+SRCS = ft_utils.c main.c utils_time.c
 
 OBJS = ${SRCS:.c=.o}
 
@@ -25,4 +25,4 @@ fclean: clean
 re : fclean all
 
 test :
-	./philo
+	./philo 5 800 200 200 4
