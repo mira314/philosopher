@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 08:17:42 by vrandria          #+#    #+#             */
-/*   Updated: 2024/07/28 12:29:56 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/07/28 13:51:01 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,23 @@ t_data *ft_setup(char *argv[])
     data->time_stamp = 0;
     return (data);
 }
+void time_update(t_data *data)
+{
+    uint64_t diff_time;
+
+    diff_time = (get_time() - (data->time_start));
+    data->time_stamp = (unsigned int)diff_time;
+}
 int main(int argc, char *argv[])
 {
     t_data *data;
     (void)argc;
 
     data = ft_setup(argv);
-    printf("%d at %lu\n", data->nb_philo, data->time_start);
-    ft_do_usleep(1000);
-    printf("%d at %lu\n", data->nb_philo, data->time_start);
+    printf("%d at %d\n", data->nb_philo, data->time_stamp);
+    usleep(10000);
+    time_update(data);
+    printf("%d at %d\n", data->nb_philo, data->time_stamp);
     free(data);
     return 0;
 }

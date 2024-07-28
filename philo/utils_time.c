@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 09:44:41 by vrandria          #+#    #+#             */
-/*   Updated: 2024/07/28 11:17:22 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/07/28 13:56:43 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,14 @@ uint64_t get_time(void)
     return (milliseconds);
 }
 
-void    ft_do_usleep(uint64_t time)
+int    ft_do_usleep(uint64_t time)
 {
     uint64_t start_time;
 
     start_time = get_time();
     while ((get_time() - start_time) < time)
     {
-        usleep(100);
+        usleep(150);
     }
+    return (1);
 }

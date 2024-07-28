@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 16:47:32 by vrandria          #+#    #+#             */
-/*   Updated: 2024/07/28 12:31:09 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/07/28 13:49:02 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_data
     uint64_t    time_to_steep;
     uint64_t    time_start;
     t_philo     *philosopher;
-    int         time_stamp;
+    unsigned int         time_stamp;
 } t_data;
 
 typedef struct s_threads
@@ -50,7 +50,7 @@ typedef struct s_threads
 
  /******** utils_time.c   ********/
 uint64_t    get_time(void);
-void        ft_do_usleep(uint64_t time);
+int        ft_do_usleep(uint64_t time);
 /******** ft_utis.c ********/
 int	    ft_atoi(const char *str);
 size_t	ft_strlen(const char *s);
