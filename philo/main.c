@@ -24,14 +24,22 @@ static check_correct_arg(int argc, char const *argv[])
 
 }
 */
-int ft_setup_philo(t_data *data)
+t_philo *ft_setup_philo(t_data *data)
 {
     t_philo *philo;
-    
-    philo = malloc(sizeof(data)->nb_philo);
+    int i;
+
+    i = 0;
+    philo = malloc(sizeof(t_philo) * (data->nb_philo));
     if (!philo)
-        return (1);
-    return (0);
+        return (0);
+    while (i < data->nb_philo)
+        {
+            philo[i].id = i + 1;
+            philo[i].nb_eat = 0;
+            i++;
+        }
+    return (philo);
 }
 
 void ft_setup(int argc, char *argv[], t_data *data)
@@ -52,13 +60,10 @@ void time_update(t_data *data)
 int main(int argc, char *argv[])
 {
     t_data data;
-    int i = 50;
+    t_philo *philo;
     ft_setup(argc, argv, &data);
-    while(i--) 
-    {
-        printf("%d\n", data.time_stamp);
-        ft_do_usleep(100);
-        time_update(&data);
-    }
+    philo = ft_setup_philo(&data);
+    printf("philo %d\n", philo[1].id);
+    free(philo);
     return 0;
 }
