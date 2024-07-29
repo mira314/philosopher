@@ -31,26 +31,28 @@ typedef struct s_philo
 
 typedef struct s_data
 {
-    int nb_philo;
-    int nb_need_eat;
-    int nb_fork;
-    unsigned int    time_to_die;
-    unsigned int     time_to_steep;
-    unsigned int     time_to_eat;
-    uint64_t    time_start;
-    t_philo     *philosopher;
-    unsigned int         time_stamp;
+	int nb_philo;
+	int nb_need_eat;
+	int nb_fork;
+	unsigned int    time_to_die;
+	unsigned int     time_to_steep;
+	unsigned int     time_to_eat;
+	uint64_t    time_start;
+	t_philo     *philo;
+	pthread_mutex_t	*forks;
+	unsigned int         time_stamp;
 } t_data;
 
 typedef struct s_threads
 {
-    int flag;
+	int flag;
 } t_threads;
 
 
  /******** utils_time.c   ********/
-uint64_t    get_time(void);
-int        ft_do_usleep(uint64_t time);
+uint64_t	get_time(void);
+int	ft_do_usleep(uint64_t time);
+void	time_update(t_data *data);
 /******** ft_utis.c ********/
 int	    ft_atoi(const char *str);
 size_t	ft_strlen(const char *s);

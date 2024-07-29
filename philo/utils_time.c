@@ -42,3 +42,8 @@ int    ft_do_usleep(uint64_t time)
     }
     return (0);
 }
+
+void time_update(t_data *data)
+{
+    data->time_stamp = (get_time() - data->time_start);
+}

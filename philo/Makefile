@@ -6,7 +6,7 @@ NAME = philo
 
 CC = gcc
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -pthread
 
 all: ${NAME}
 

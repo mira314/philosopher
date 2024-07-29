@@ -42,26 +42,30 @@ t_philo *ft_setup_philo(t_data *data)
     return (philo);
 }
 
-void ft_setup(int argc, char *argv[], t_data *data)
+void    fork_init(t_data *data)
+{
+    data->forks = malloc(sizeof(pthread_mutex_t) * (data->nb_philo));
+    if (!data->forks)
+        return ;
+}
+void ft_setup_data(int argc, char *argv[], t_data *data)
 {
     data->time_start = get_time();
     data->nb_philo = ft_atoi(argv[1]);
+    data->nb_fork = ft_atoi(argv[1]);
     data->time_to_die = ft_atoi(argv[2]);
     data->time_to_eat = ft_atoi(argv[3]);
     data->time_to_steep = ft_atoi(argv[4]);
     data->time_stamp = 0;
     if (argc == 6)
         data->nb_need_eat = ft_atoi(argv[5]);
-}
-void time_update(t_data *data)
-{
-    data->time_stamp = (get_time() - data->time_start);
+    fork_init(data);
 }
 int main(int argc, char *argv[])
 {
     t_data data;
     t_philo *philo;
-    ft_setup(argc, argv, &data);
+    ft_setup_data(argc, argv, &data);
     philo = ft_setup_philo(&data);
     printf("philo %d\n", philo[1].id);
     free(philo);
