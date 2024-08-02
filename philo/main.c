@@ -37,6 +37,8 @@ t_philo *ft_setup_philo(t_data *data)
         {
             philo[i].id = i + 1;
             philo[i].nb_eat = 0;
+            philo[i].philo_is_dead = 0;
+            philo[i].nb_philo_action = 0;
             i++;
         }
     return (philo);
@@ -61,6 +63,13 @@ void ft_setup_data(int argc, char *argv[], t_data *data)
         data->nb_need_eat = ft_atoi(argv[5]);
     fork_init(data);
 }
+/*
+void philohopher_do(t_data *data, t_philo *philo, int action)
+{
+    if (action == 1)
+    //avoir après la gestion de pcreat//
+}
+*/
 int main(int argc, char *argv[])
 {
     t_data data;

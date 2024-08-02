@@ -20,15 +20,6 @@
 # include <limits.h>
 # include <stdint.h>
 
-
-typedef struct s_philo
-{
-   int		id;
-   int		nb_eat;
-   uint64_t	eat_last_time;
-
-}t_philo;
-
 typedef struct s_data
 {
 	int nb_philo;
@@ -38,10 +29,23 @@ typedef struct s_data
 	unsigned int     time_to_steep;
 	unsigned int     time_to_eat;
 	uint64_t    time_start;
-	t_philo     *philo;
 	pthread_mutex_t	*forks;
 	unsigned int         time_stamp;
 } t_data;
+
+typedef struct s_philo
+{
+   int		id;
+   int		nb_eat;
+   uint64_t	eat_last_time;
+	 int philo_is_dead;
+	int	nb_philo_action;
+	uint64_t time_action;
+	pthread_mutex_t	*left_fork;
+	pthread_mutex_t	*right_fork;
+	t_data *data;
+}t_philo;
+
 
 typedef struct s_threads
 {
