@@ -51,7 +51,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-uint64_t	ft_atol64(const char *str)
+uint64_t	ft_atoint64(const char *str)
 {
 	uint64_t	result;
 	int		i;

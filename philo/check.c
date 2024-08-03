@@ -46,15 +46,15 @@ char *valid_value(char *str)
 
 void    check_input(t_data *data, char *argv[])
 {
-    data->nb_philo = ft_atol64(argv[1]);
-    data->time_to_die = ft_atol64(argv[2]);
-    data->time_to_eat = ft_atol64(argv[3]);
-    data->time_to_sleep = ft_atol64(argv[4]);
+    data->nb_philo = ft_atoint64(argv[1]);
+    data->time_to_die = ft_atoint64(argv[2]);
+    data->time_to_eat = ft_atoint64(argv[3]);
+    data->time_to_sleep = ft_atoint64(argv[4]);
     if (data->time_to_die < 60 || data->time_to_eat < 60 
     || data->time_to_sleep < 60)
     error_print("time too short for action");
     if (argv[5])
-        data->need_to_eat = ft_atol64(argv[5]);
+        data->need_to_eat = ft_atoint64(argv[5]);
     else
         data->need_to_eat = -1; 
 }

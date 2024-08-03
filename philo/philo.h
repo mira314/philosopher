@@ -22,12 +22,13 @@
 # include <pthread.h>
 # include <err.h>
 
-# define LOCK 1;
-# define UNLOCK 2;
-# define INIT 3;
-# define DESTROY 4;
-# define JOIN 5;
-# define DETACH 6;
+# define LOCK 1
+# define UNLOCK 2
+# define INIT 3
+# define DESTROY 4
+# define JOIN 5
+# define DETACH 6
+# define CREATE 7
 
 typedef struct s_data t_data;
 
@@ -70,13 +71,20 @@ struct s_data
 /******** ft_utis.c ********/
 int	    ft_atoi(const char *str);
 size_t	ft_strlen(const char *s);
-uint64_t	ft_atol64(const char *str);
+uint64_t	ft_atoint64(const char *str);
 void	error_print(char *error);
 /**********check.c****************/
 void    check_input(t_data *data, char *argv[]);
 char    *valid_value(char *str);
 /***********init.c**************************/
-void data_init(t_data *data);
+void    data_init(t_data *data);
+void    philo_init(t_data *data);
+void use_this_forks(t_philo *philo, t_forks *forks,int id);
 /***********alloc_helps*******************/
 void	*do_malloc(size_t bytes);
+void    alloc_mutex(pthread_mutex_t *mutex, int code);
+void    alloc_pthread(pthread_t *pthread, void *(*f)(void *), 
+    void *data, int code);
+
+
 #endif
