@@ -1,0 +1,8 @@
+e_opcode 
+
+LOCK
+UNLOCK
+INIT
+DESTROY
+JOIN
+DETACH

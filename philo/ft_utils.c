@@ -6,12 +6,16 @@
 /*   By: vrandria <vrandria@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 08:21:57 by vrandria          #+#    #+#             */
-/*   Updated: 2024/07/28 10:54:52 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/08/03 17:57:42 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
+void	error_print(char *error)
+{
+	printf("%s\n",error);
+	exit(EXIT_FAILURE);
+}
 int	ft_atoi(const char *str)
 {
 	int		sign;
@@ -54,10 +58,12 @@ uint64_t	ft_atol64(const char *str)
 
 	i = 0;
 	result = 0;
+	str = valid_value(str);
+
 	while (str[i]>= '0' && str[i]<= '9')
 	{
 		result = (result * 10) + str[i] - '0';
 		i++;
 	}
-	return ((uint64_t)result);
+	return (result);
 }

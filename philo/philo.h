@@ -6,59 +6,77 @@
 /*   By: vrandria <vrandria@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 16:47:32 by vrandria          #+#    #+#             */
-/*   Updated: 2024/07/28 13:49:02 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/08/03 17:56:51 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
 # include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
+# include <stdlib.h>   
 # include <unistd.h>
+#include <stdbool.h>
 # include <sys/time.h>
 # include <limits.h>
 # include <stdint.h>
+# include <pthread.h>
+# include <err.h>
 
-typedef struct s_data
+# define LOCK 1;
+# define UNLOCK 2;
+# define INIT 3;
+# define DESTROY 4;
+# define JOIN 5;
+# define DETACH 6;
+
+typedef struct s_data t_data;
+
+enum e_pcode
 {
-	int nb_philo;
-	int nb_need_eat;
-	int nb_fork;
-	unsigned int    time_to_die;
-	unsigned int     time_to_steep;
-	unsigned int     time_to_eat;
-	uint64_t    time_start;
-	pthread_mutex_t	*forks;
-	unsigned int         time_stamp;
-} t_data;
+    3
+}
+typedef struct s_forks
+{
+    pthread_mutex_t fork;
+    int fork_id;
+
+}t_forks;
 
 typedef struct s_philo
 {
-   int		id;
-   int		nb_eat;
-   uint64_t	eat_last_time;
-	 int philo_is_dead;
-	int	nb_philo_action;
-	uint64_t time_action;
-	pthread_mutex_t	*left_fork;
-	pthread_mutex_t	*right_fork;
-	t_data *data;
-}t_philo;
+    int id;
+    uint64_t    eat_count;
+    uint64_t is_eat_max;
+    uint64_t    last_eat;
+    t_forks  *left_fork;
+    t_forks  *right_fork;
+    pthread_t   thread_id;
+    t_data *data;
+} t_philo;
 
-
-typedef struct s_threads
+struct s_data
 {
-	int flag;
-} t_threads;
+    uint64_t    nb_philo;
+    uint64_t    time_to_die;
+    uint64_t    time_to_eat;
+    uint64_t    time_to_sleep;
+    uint64_t    need_to_eat;
+    uint64_t time_start;
+    int end_simu;
+    t_forks *fork;
+    t_philo *philo;
+};
 
-
- /******** utils_time.c   ********/
-uint64_t	get_time(void);
-int	ft_do_usleep(uint64_t time);
-void	time_update(t_data *data);
 /******** ft_utis.c ********/
 int	    ft_atoi(const char *str);
 size_t	ft_strlen(const char *s);
 uint64_t	ft_atol64(const char *str);
+void	error_print(char *error);
+/**********check.c****************/
+void    check_input(t_data *data, char *argv[]);
+char    *valid_value(char *str);
+/***********init.c**************************/
+void data_init(t_data *data);
+/***********alloc_helps*******************/
+void	*do_malloc(size_t bytes);
 #endif

@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vrandria <vrandria@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/03 10:54:17 by vrandria          #+#    #+#             */
-/*   Updated: 2024/08/03 17:57:45 by vrandria         ###   ########.fr       */
+/*   Created: 2024/08/03 16:40:39 by vrandria          #+#    #+#             */
+/*   Updated: 2024/08/03 17:57:43 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
- int main(int argc, char *argv[])
- {
-    t_data data;
-    if (argc == 5 || argc == 6)
-    {
-        check_input(&data, argc);
-      //  data_init(&data);
-       // start_simu(&data);
-       // free_data(&data);
-    }
-    else
-    { 
-       error_print("argument invalid");
-    }
-    return 0;
- }
- 
+void data_init(t_data *data)
+{
+    data->end_simu = 0;
+    data->philo = do_malloc(data->nb_philo);
+}
