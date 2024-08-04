@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 16:47:32 by vrandria          #+#    #+#             */
-/*   Updated: 2024/08/04 13:12:42 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/08/04 14:18:13 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,10 @@ struct s_data
     t_philo *philo;
     pthread_mutex_t data_mutex;
 };
-
+/*************utils_time.c *************/
+void time_update(t_data *data);
+void    ft_do_usleep(uint64_t time);
+uint64_t get_time(void);
 /******** ft_utis.c ********/
 int	    ft_atoi(const char *str);
 size_t	ft_strlen(const char *s);

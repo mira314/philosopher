@@ -1,4 +1,4 @@
-SRCS = ft_utils.c main.c utils_time.c check.c main.c init.c \
+SRCS = ft_utils.c main.c utils_time.c check.c main.c init.c action.c \
 		alloc_helps.c simulation.c lock_unlock_utils.c control.c
 
 OBJS = ${SRCS:.c=.o}

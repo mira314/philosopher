@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 09:44:41 by vrandria          #+#    #+#             */
-/*   Updated: 2024/08/03 16:32:54 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/08/04 14:18:07 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ uint64_t get_time(void)
     return (milliseconds);
 }
 
-int    ft_do_usleep(uint64_t time)
+void    ft_do_usleep(uint64_t time)
 {
     uint64_t start_time;
     uint64_t temp;
@@ -40,7 +40,7 @@ int    ft_do_usleep(uint64_t time)
             break ;
         usleep(100);
     }
-    return (0);
+    return ;
 }
 
 void time_update(t_data *data)
