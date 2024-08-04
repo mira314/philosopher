@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 16:47:32 by vrandria          #+#    #+#             */
-/*   Updated: 2024/08/03 17:56:51 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/08/04 13:12:42 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,10 @@ struct s_data
     uint64_t    need_to_eat;
     uint64_t time_start;
     int end_simu;
+    int theards_is_ready;
     t_forks *fork;
     t_philo *philo;
+    pthread_mutex_t data_mutex;
 };
 
 /******** ft_utis.c ********/
@@ -76,15 +78,24 @@ void	error_print(char *error);
 /**********check.c****************/
 void    check_input(t_data *data, char *argv[]);
 char    *valid_value(char *str);
+int simualtion_ended(t_data *data);
 /***********init.c**************************/
 void    data_init(t_data *data);
 void    philo_init(t_data *data);
-void use_this_forks(t_philo *philo, t_forks *forks,int id);
+void    use_this_forks(t_philo *philo, t_forks *forks,int id);
 /***********alloc_helps*******************/
 void	*do_malloc(size_t bytes);
 void    alloc_mutex(pthread_mutex_t *mutex, int code);
 void    alloc_pthread(pthread_t *pthread, void *(*f)(void *), 
     void *data, int code);
-
-
+/*****************simulation.c*************************/
+void    simulation_start(t_data *data);
+void *simulation(void *data);
+/**************lock_unlock_utils.c*********************/
+void    set_unlock(pthread_mutex_t *mutex,int *dest, int code);
+int get_unlock(pthread_mutex_t *mutex, int *value);
+void    set_unlock_mutex_uint64(pthread_mutex_t *mutex,uint64_t *dest, int code);
+uint64_t get_unlock_mutex_uint64(pthread_mutex_t *mutex, uint64_t *value);
+/********************control.c*******************************/
+void wait_till_theads_is_ready(t_data *data);
 #endif

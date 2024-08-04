@@ -6,3 +6,8 @@ INIT
 DESTROY
 JOIN
 DETACH
+
+set_unlock_mutex = get_bool;
+get_unlock_mutex = set_boot;
+set_unlock_mutex_uint64
+get_unlock_mutex_uint64

@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 08:21:57 by vrandria          #+#    #+#             */
-/*   Updated: 2024/08/03 17:57:42 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/08/04 13:36:37 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,3 +67,4 @@ uint64_t	ft_atoint64(const char *str)
 	}
 	return (result);
 }
+

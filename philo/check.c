@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 14:57:22 by vrandria          #+#    #+#             */
-/*   Updated: 2024/08/03 17:57:41 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/08/04 12:53:49 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,8 @@ void    check_input(t_data *data, char *argv[])
         data->need_to_eat = ft_atoint64(argv[5]);
     else
         data->need_to_eat = -1; 
+}
+int simualtion_ended(t_data *data)
+{
+    return (get_unlock_mutex(data->data_mutex, &data->end_simu));
 }
