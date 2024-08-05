@@ -29,7 +29,7 @@ void *simulation(void *data)
 }
 void    simulation_start(t_data *data)
 {
-    int i
+    int i;
 
     i = 0;
     if (data->need_to_eat == 0)
@@ -38,19 +38,19 @@ void    simulation_start(t_data *data)
         ;/// a faire
     else
     {
-        while(data->nb_philo > i)
+        while((int)data->nb_philo > i)
         {
             alloc_pthread(&data->philo[i].thread_id, simulation,
             data->philo[i], 7);
         }
     }
     data->time_start = get_time();     
-    set_unlock_mutex(&data->data_mutex, data->theards_is_ready, 1)
+    set_unlock_mutex(&data->data_mutex, &data->theards_is_ready, 1);
     i = 0;
-    while (data->nb_philo)
+    while ((int)data->nb_philo > i)
     {
         alloc_pthread(&data->philo[i].thread_id, NULL, NULL, 5);
-         
+         i++;
 
     }
 }

@@ -20,7 +20,7 @@
 # include <limits.h>
 # include <stdint.h>
 # include <pthread.h>
-# include <err.h>
+# include <errno.h>
 
 # define LOCK 1
 # define UNLOCK 2
@@ -91,8 +91,8 @@ void    alloc_pthread(pthread_t *pthread, void *(*f)(void *),
 void    simulation_start(t_data *data);
 void *simulation(void *data);
 /**************lock_unlock_utils.c*********************/
-void    set_unlock(pthread_mutex_t *mutex,int *dest, int code);
-int get_unlock(pthread_mutex_t *mutex, int *value);
+void    set_unlock_mutex(pthread_mutex_t *mutex,int *dest, int code);
+int get_unlock_mutex(pthread_mutex_t *mutex, int *value);
 void    set_unlock_mutex_uint64(pthread_mutex_t *mutex,uint64_t *dest, int code);
 uint64_t get_unlock_mutex_uint64(pthread_mutex_t *mutex, uint64_t *value);
 /********************control.c*******************************/

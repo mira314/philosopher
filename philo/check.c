@@ -14,7 +14,7 @@
 
 static int ft_is_space(char c)
 {
-    return (c>= 9 && c <= 13 || c == 32);
+    return ((c>= 9 && c <= 13) || c == 32);
 }
 
 char *valid_value(char *str)
@@ -60,5 +60,5 @@ void    check_input(t_data *data, char *argv[])
 }
 int simualtion_ended(t_data *data)
 {
-    return (get_unlock_mutex(data->data_mutex, &data->end_simu));
+    return (get_unlock_mutex(&data->data_mutex, &data->end_simu));
 }

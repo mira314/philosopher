@@ -34,11 +34,11 @@ code == 7 for create
 static void error_check_pthread(int status, int code)
 {
     if (status == 0)
-        ;
+        return ;
     if (EAGAIN == status)
         error_print("no resouces to create");
     else if (EPERM == status)
-        error_print("permission error")
+        error_print("permission error");
     else if (EINVAL == status && code == 7)
         error_print("attribute invalide");
     else if (EINVAL == status && (code == 5 || code == 6))
@@ -60,7 +60,7 @@ static void error_check_mutex(int status, int code)
         error_print("error deadlock waiting for mutex");
     else if (EPERM ==  status)
         error_print("thread does not lock on mutex");
-    else if (ENOMEN ==  status)
+    else if (ENOMEM ==  status)
         error_print("not enough memory");
     else if (EBUSY ==  status)
         error_print("mutex locked");
@@ -86,7 +86,7 @@ void    alloc_pthread(pthread_t *thread, void *(*f)(void *),
     if (code == 7)
         error_check_pthread(pthread_create(thread, NULL, f, data), code);
     else if (code == 5)
-        error_check_pthread(pthread_join(*thread,, NULL), code);
+        error_check_pthread(pthread_join(*thread, NULL), code);
     else if (code == 6)
         error_check_pthread(pthread_detach(*thread), code);
     else

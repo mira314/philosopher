@@ -19,10 +19,11 @@ void    data_init(t_data *data)
     data->end_simu = 0;
     data->theards_is_ready = 0;
     data->philo = do_malloc(sizeof(t_philo) * data->nb_philo);
+    alloc_mutex(&data->data_mutex, 3);
     data->fork = do_malloc(sizeof(t_philo) * data->nb_philo);
-    while (i < data->nb_philo) 
+    while (i < (int)data->nb_philo) 
     {
-        alloc_mutex(data->fork[i].fork, 3);
+        alloc_mutex(&data->fork[i].fork, 3);
         data->fork[i].fork_id = i;
         i++;
     }
@@ -35,8 +36,8 @@ void    philo_init(t_data *data)
     t_philo *philo;
 
     i = 0;
-    alloc_mutex(data->data_mutex, 3);
-    while (data->nb_philo > i)
+    alloc_mutex(&data->data_mutex, 3);
+    while ((int)data->nb_philo > i)
     {
         philo = data->philo + 1;
         philo->id = i + 1;
@@ -60,7 +61,4 @@ void use_this_forks(t_philo *philo, t_forks *forks,int id)
         philo->right_fork = &forks[id];
         philo->left_fork = &forks[(id + 1) % number_philo];
     }
-
-
-     
 }
