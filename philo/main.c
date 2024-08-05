@@ -17,7 +17,7 @@
     t_data data;
     if (argc == 5 || argc == 6)
     {
-        check_input(&data, argc);
+        check_input(&data, argv);
       //  data_init(&data);
        // start_simu(&data);
        // free_data(&data);

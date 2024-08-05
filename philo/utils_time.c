@@ -45,5 +45,5 @@ void    ft_do_usleep(uint64_t time)
 
 void time_update(t_data *data)
 {
-    data->time_stamp = (get_time() - data->time_start);
+    data->time_start = (get_time() - data->time_start);
 }

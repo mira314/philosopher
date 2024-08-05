@@ -16,7 +16,7 @@ void	error_print(char *error)
 	printf("%s\n",error);
 	exit(EXIT_FAILURE);
 }
-int	ft_atoi(const char *str)
+int	ft_atoi(char *str)
 {
 	int		sign;
 	int		result;
@@ -41,7 +41,7 @@ int	ft_atoi(const char *str)
 	return ((int)result * sign);
 }
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(char *str)
 {
 	int	i;
 
@@ -51,7 +51,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-uint64_t	ft_atoint64(const char *str)
+uint64_t	ft_atoint64(char *str)
 {
 	uint64_t	result;
 	int		i;

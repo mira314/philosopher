@@ -32,10 +32,6 @@
 
 typedef struct s_data t_data;
 
-enum e_pcode
-{
-    3
-}
 typedef struct s_forks
 {
     pthread_mutex_t fork;
@@ -74,9 +70,9 @@ void time_update(t_data *data);
 void    ft_do_usleep(uint64_t time);
 uint64_t get_time(void);
 /******** ft_utis.c ********/
-int	    ft_atoi(const char *str);
-size_t	ft_strlen(const char *s);
-uint64_t	ft_atoint64(const char *str);
+int	    ft_atoi(char *str);
+size_t	ft_strlen(char *s);
+uint64_t	ft_atoint64(char *str);
 void	error_print(char *error);
 /**********check.c****************/
 void    check_input(t_data *data, char *argv[]);
