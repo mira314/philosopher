@@ -11,3 +11,5 @@ set_unlock_mutex = get_bool;
 get_unlock_mutex = set_boot;
 set_unlock_mutex_uint64
 get_unlock_mutex_uint64
+
+https://github.com/mcombeau/philosophers.git
