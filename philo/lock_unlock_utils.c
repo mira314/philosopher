@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lock_unlock_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vrandria <vrandria@student.42antananari    +#+  +:+       +#+        */
+/*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 12:05:53 by vrandria          #+#    #+#             */
-/*   Updated: 2024/08/04 12:48:48 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/08/06 14:50:47 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

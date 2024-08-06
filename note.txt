@@ -14,3 +14,6 @@ get_unlock_mutex_uint64
 
 https://github.com/mcombeau/philosophers.git
 https://github.com/mira314/philo.git
+
+git@github.com:zelhajou/42cursus-philosophers.git.
+https://github.com/zelhajou/42cursus-philosophers.git
